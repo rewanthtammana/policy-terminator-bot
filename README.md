@@ -13,11 +13,6 @@ We have 4 infrastructures in our data centers.
 
 ![Civil War with GSwarm bots](./images/Civil-War-With-GSwarm.png)
 
-## Screenshots
-
-![Slack Notification](./images/Notifications.png)
-
-
 ## Pre-requisite tools
 
 * Kubernetes 1.23
@@ -72,6 +67,10 @@ go build -o ./bin/policy-terminator clean.go
 ```bash
 ./bin/policy-terminator
 ```
+
+## Screenshots
+
+![Slack Notification](./images/Notifications.png)
 
 
 ## Future enhancements
