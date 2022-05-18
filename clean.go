@@ -58,10 +58,10 @@ func main() {
 				kind := strings.ToLower(result[1].String())
 				// if namespace == "loki" || namespace == "lala" {
 				if kind == "deployment" {
-					fmt.Println("XGroup = ", group, "Version = ", version, "kind = ", kind, "namespace = ", namespace, "name = ", name)
+					fmt.Println("[DEBUG] XGroup = ", group, "Version = ", version, "kind = ", kind, "namespace = ", namespace, "name = ", name)
 					kubernetes.DeleteResource(cliSet, ctx, group, version, "deployments", namespace, name)
 				} else if kind == "pod" {
-					fmt.Println("YGroup = ", group, "Version = ", version, "kind = ", kind, "namespace = ", namespace, "name = ", name)
+					fmt.Println("[DEBUG] YGroup = ", group, "Version = ", version, "kind = ", kind, "namespace = ", namespace, "name = ", name)
 					kubernetes.DeleteResource(cliSet, ctx, group, version, "pods", namespace, name)
 				}
 				// Can be expanded to daemonset, repliaset, statefulset....

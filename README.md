@@ -2,9 +2,21 @@
 
 Policy Terminator Kubernetes bot to ensure continuous compliance
 
+## Demo
+
+We have 4 infrastructures in our data centers.
+
+1. Iron Man Team
+2. Captain America Team
+3. Giant Swarm Team
+4. Ahoc teams
+
+![Civil War with GSwarm bots](./images/Civil-War-With-GSwarm.png)
+
 ## Screenshots
 
 ![Slack Notification](./images/Notifications.png)
+
 
 ## Pre-requisite tools
 
@@ -46,7 +58,7 @@ To get the binary,
 
 ```bash
 go get ./...
-go build -o ./bin/policy-generator .
+go build -o ./bin/policy-terminator clean.go
 ```
 
 ### Policy Terminator - Use the pre-compiled binary

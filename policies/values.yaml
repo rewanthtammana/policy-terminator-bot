@@ -7,11 +7,17 @@ RequireLabels:
   # includeNamespaces:
   #   - loki
   excludeNamespaces:
-    # - lala
-    - kyverno
-    - default
-    - local-path-storage
     - kube-system
+    - kyverno
+    - local-path-storage
+    - ironman
+    - vision
+    - spider-man
+    - captain-america
+    - ant-man
+    - hawk-eye
+    - gswarm-critical
+    - gswarm-lambda
   resources:
     - Pod
   key: aaaaaaaaowner
