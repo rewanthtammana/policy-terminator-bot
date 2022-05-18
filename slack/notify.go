@@ -8,17 +8,17 @@ import (
 	"github.com/slack-go/slack"
 )
 
+// Notifies customer's operation channel on policy-termination actions
 func NotifyUser(message string) {
 
+	// Loads config values
 	config, err := config.LoadValues(".")
 	utils.CheckIfError(err)
 
 	api := slack.New(config.POLICY_TERMINATOR_SLACK_BOT_TOKEN)
 	channelId := config.CHANNELID
 
-	fmt.Println("channelid = ", channelId)
-	fmt.Println("token = ", config.POLICY_TERMINATOR_SLACK_BOT_TOKEN)
-
+	// Posts message to respective slack channel
 	channelId, timestamp, err := api.PostMessage(channelId, slack.MsgOptionText(message, false))
 	utils.CheckIfError(err)
 

@@ -70,4 +70,4 @@ go build -o ./bin/policy-generator .
 * [ ] Add flags to ignore slack notifications
 * [ ] Add discord/MS teams/mail notification support
 * [ ] Add descriptive message in slack notifications like name of policy violated
-  
+* [ ] Add auto-generation scripts for demonstration

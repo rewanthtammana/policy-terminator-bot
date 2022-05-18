@@ -13,35 +13,33 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 )
 
+// Main function to kick-start the bot
 func main() {
 	ctx := context.Background()
 	config := ctrl.GetConfigOrDie()
 	cliSet := dynamic.NewForConfigOrDie(config)
 
-	// w, err := cliSet.Resource(schema.GroupVersionResource{
-	// 	Group:    "wgpolicyk8s.io",
-	// 	Version:  "v1alpha2",
-	// 	Resource: "policyreports",
-	// }).Watch(ctx, metav1.ListOptions{})
-
-	// utils.CheckIfError(err)
-
+	// Watches for the below resource
 	group := "wgpolicyk8s.io"
 	version := "v1alpha2"
 	resource := "policyreports"
-
 	watchKyvernoPolicyReports := kubernetes.WatchResource(cliSet, ctx, group, version, resource)
 
+	// Analyzing all events sent by watcher
 	for event := range watchKyvernoPolicyReports.ResultChan() {
 		// utils.FormatToJSON(event.Object)
 		eventObject, _ := json.MarshalIndent(event.Object, "", "\t")
+
+		// Extracts list of all resources that failed compliance
 		allResourcesList := gjson.Get(string(eventObject), "results.#(result==\"fail\")#")
 
+		// Iterate each resource to validate for resource type & extract required fields
 		allResourcesList.ForEach(func(key, value gjson.Result) bool {
 			result := gjson.GetMany(string(value.String()), "message", "policy", "resources", "severity")
 			result[2].ForEach(func(key, value gjson.Result) bool {
 				result := gjson.GetMany(value.String(), "apiVersion", "kind", "name", "namespace")
 
+				// Performs operations on apiVersion field to extract group & version information for future operations
 				apiVersion := result[0].String()
 				regexPattern := regexp.MustCompile(`([^/]*)/?(.*)`)
 				regexMatches := regexPattern.FindStringSubmatch(apiVersion)

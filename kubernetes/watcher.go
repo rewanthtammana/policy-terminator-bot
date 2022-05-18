@@ -10,8 +10,9 @@ import (
 	"k8s.io/client-go/dynamic"
 )
 
+// Watches for resource updates continously & triggers events
 func WatchResource(cliSet dynamic.Interface, ctx context.Context, group string, version string, resource string) watch.Interface {
-	w, err := cliSet.Resource(schema.GroupVersionResource{
+	watcher, err := cliSet.Resource(schema.GroupVersionResource{
 		Group:    group,
 		Version:  version,
 		Resource: resource,
@@ -19,5 +20,5 @@ func WatchResource(cliSet dynamic.Interface, ctx context.Context, group string, 
 
 	utils.CheckIfError(err)
 
-	return w
+	return watcher
 }

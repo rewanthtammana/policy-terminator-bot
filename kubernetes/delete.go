@@ -18,12 +18,15 @@ func DeleteResource(cliSet dynamic.Interface, ctx context.Context, group string,
 	// deleteOptions := metav1.DeleteOptions{
 	// 	PropagationPolicy: &deletePolicy,
 	// }
+
+	// Deletes the specificed resource
 	err := cliSet.Resource(schema.GroupVersionResource{
 		Group:    group,
 		Version:  version,
 		Resource: resource,
 	}).Namespace(namespace).Delete(ctx, name, metav1.DeleteOptions{})
 
+	// // Lists available resources
 	// out, err := cliSet.Resource(schema.GroupVersionResource{
 	// 	Group:    group,
 	// 	Version:  version,

@@ -10,11 +10,14 @@ type Config struct {
 	CHANNELID                         string `mapstructure:"CHANNELID"`
 }
 
+// Loads values from config.env/env to the app
 func LoadValues(path string) (config Config, err error) {
 	viper.AddConfigPath(path)
 
-	// Read env values from config.env
+	// Reads env values from config.env
 	viper.SetConfigName("config")
+
+	// Reads values from env variables
 	viper.SetConfigType("env")
 	viper.AutomaticEnv()
 	err = viper.ReadInConfig()
