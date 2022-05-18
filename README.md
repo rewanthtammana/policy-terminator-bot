@@ -27,6 +27,12 @@ We have 4 infrastructures in our data centers.
 
 ## Installation
 
+### Populate data
+
+```bash
+./scripts/populate-data.sh
+```
+
 ### Policies
 
 Assuming you have Kyverno & helm3 installed.
