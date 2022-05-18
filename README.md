@@ -13,6 +13,8 @@ We have 4 infrastructures in our data centers.
 
 ![Civil War with GSwarm bots](./images/Civil-War-With-GSwarm.png)
 
+[Demo Video](./images/Demo.mp4)
+
 ## Pre-requisite tools
 
 * Kubernetes 1.23
