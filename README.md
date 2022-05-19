@@ -90,3 +90,17 @@ go build -o ./bin/policy-terminator clean.go
 * [ ] Add discord/MS teams/mail notification support
 * [ ] Add descriptive message in slack notifications like name of policy violated
 * [ ] Add auto-generation scripts for demonstration
+* [ ] Send message to specific user but for this we need to have user slack id.
+    * [ ] For this, maybe we can make an annotation mandatory something like deployment/deployerID.
+    * [ ] We extract this user ID information from here & send notifications to the specific user.
+* [ ] As we discussed about interactive messages, maybe we can add something like automatic fix. So, we will give 3 options when a policy is violated. Operation on the resource, `yes`/`no`/`fix`? We can maybe have automatic fixes in place.
+    * [ ] But being from the security background, I feel this might be tricky. What if someone tampers with the data being sent to the webhook? Maybe we need to think about a way to ensure the data isn't tampered. For ex, there's a possibility for the user to edit the pod/namespace name & he will be elevated privileges to perform deletion operations.
+
+### Security observations
+
+* This will be a critical piece for security because it is capable of deleting anything. All it requires is a small mistake in code/misconfiguration in policy.
+* This binary should be built in a GitOps approach. Whenever the policy terminator bot code is changed, the PR must be reviewed by someone from security team. The same rule should be applied to helm charts as well because we don't want anyone to accidentally tamper with the namespaces
+* Active monitoring should be performed from k8s pov to ensure that no one is making changes to the policies by logging. There should be alerts configured for whenever someone makes changes to kyverno policies directly from the system.
+
+* Need to ensure this binary isn't exfilterated into other systems. All it requires is 
+
