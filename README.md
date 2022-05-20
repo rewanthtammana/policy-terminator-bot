@@ -72,6 +72,10 @@ go build -o ./bin/policy-terminator clean.go
 
 ## Screenshots
 
+### Architecture flow
+
+![Workflow](./images/Bot-Architecture-Diagram.png)
+
 ### Slack
 
 ![Slack Notification](./images/Notifications.png)
