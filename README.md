@@ -72,12 +72,17 @@ go build -o ./bin/policy-terminator clean.go
 
 ## Screenshots
 
+### Slack
+
 ![Slack Notification](./images/Notifications.png)
 
+### Email
+
+![Email notification](./images/Notifications-Email.png)
 
 ## Future enhancements
 
-* [ ] The end-user/customer should have a visibility on the resources getting deleted. A slack/discord notification would be of great help.
+* [x] The end-user/customer should have a visibility on the resources getting deleted. A slack/discord notification would be of great help.
 * [ ] Deleting all non-compliant resources isn't a great idea. What if there are some legacy systems & their configuration isn't updated on company's SCM systems? It's smart to have an interactive conversation with customer. A practical approach would be to send notification to the customer & request him for resource deletion like `yes`/`no`. Our webhook will capture the customer response & take action accordingly.
 * [ ] Alternatively, we can have a default option like `delete` if there's no response from user in 48 hrs but before deleting it, we can find a way to save the configuration of the resource in a private SCM repo as backup.
 * [ ] As of now, the deletion is happening only for pods & deployments. This can be extended to daemonsets, replicasets, statefulsets, jobs and so on.
@@ -89,7 +94,7 @@ go build -o ./bin/policy-terminator clean.go
 * [ ] Add flags to ignore slack notifications
 * [ ] Add discord/MS teams/mail notification support
 * [ ] Add descriptive message in slack notifications like name of policy violated
-* [ ] Add auto-generation scripts for demonstration
+* [x] Add auto-generation scripts for demonstration
 * [ ] Send message to specific user but for this we need to have user slack id.
     * [ ] For this, maybe we can make an annotation mandatory something like deployment/deployerID.
     * [ ] We extract this user ID information from here & send notifications to the specific user.
