@@ -20,4 +20,4 @@ RequireLabels:
     - gswarm-lambda
   resources:
     - Pod
-  key: aaaaaaaaowner
+  key: podowner

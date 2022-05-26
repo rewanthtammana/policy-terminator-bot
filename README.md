@@ -11,7 +11,7 @@ We have 4 infrastructures in our data centers.
 3. Giant Swarm Team
 4. Ahoc teams
 
-![Civil War with GSwarm bots](./images/Civil-War-With-GSwarm.png)
+![Civil War with GSwarm bots](./images/Civil-War-With-GSwarm-Crop.png)
 
 [Demo Video](./images/Demo.mp4)
 
