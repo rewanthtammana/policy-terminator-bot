@@ -12,12 +12,10 @@ RequireLabels:
     - local-path-storage
     - ironman
     - vision
-    - spider-man
-    - captain-america
-    - ant-man
-    - hawk-eye
-    - gswarm-critical
-    - gswarm-lambda
+    - spiderman
+    - captainamerica
+    - antman
+    - hawkeye
   resources:
     - Pod
   key: podowner
