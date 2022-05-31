@@ -8,10 +8,9 @@ We have 4 infrastructures in our data centers.
 
 1. Iron Man Team
 2. Captain America Team
-3. Giant Swarm Team
-4. Ahoc teams
+3. Ahoc teams
 
-![Civil War with GSwarm bots](./images/civil-war.png)
+![Civil War](./images/civil-war.png)
 
 [Demo Video](./images/Demo.mp4)
 
